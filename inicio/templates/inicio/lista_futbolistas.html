@@ -9,6 +9,13 @@ Lista de futbolistas
 {% endblock h1_header %}
 
 {% block contenido %}
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
 <button>
 <a class="navbar-brand" href={% url 'inicio:crear_futbolista' %}>Crear futbolista</a>
 </button>
