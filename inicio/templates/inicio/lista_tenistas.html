@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Tenistas</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+Lista de tenistas
+{% endblock h1_header %}
+
+{% block contenido %}
+<button>
+<a class="navbar-brand" href={% url 'inicio:crear_tenista' %}>Crear tenista</a>
+</button>
+<form action="" method="get">
+    {{formulario}}
+    <button>Buscar</button>
+</form>
+{% if tenistas %}
+{% for tenista in tenistas %}
+<li>Nombre:{{tenista.nombre}} - Edad:{{tenista.edad}} - Ranking:{{tenista.ranking}}</li>
+{% endfor %}
+{% else %}
+<p>No se encontraron datos guardados.</p>
+{% endif %} 
+
+{% endblock contenido %}

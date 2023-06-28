@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Basquetbolistas</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+Lista de basquetbolistas
+{% endblock h1_header %}
+
+{% block contenido %}
+<button>
+<a class="navbar-brand" href={% url 'inicio:crear_basquetbolista' %}>Crear basquetbolista</a>
+</button>
+<form action="" method="get">
+    {{formulario}}
+    <button>Buscar</button>
+</form>
+{% if basquetbolistas %}
+{% for basquetbolista in basquetbolistas %}
+<li>Nombre:{{basquetbolista.nombre}} - Edad:{{basquetbolista.edad}} - Posicion:{{basquetbolista.posicion}}</li>
+{% endfor %}
+{% else %}
+<p>No se encontraron datos guardados.</p>
+{% endif %} 
+
+{% endblock contenido %}
